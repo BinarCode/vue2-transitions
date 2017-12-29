@@ -1,0 +1,50 @@
+{
+  "name": "vue2-transitions",
+  "version": "0.0.0",
+  "description": "Reusable component transitions",
+  "repository": {
+    "url": "cristij/vue2-transitions",
+    "type": "git"
+  },
+  "main": "dist/vue2-transitions.common.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm test && npm run build",
+    "test": "test-vue-app",
+    "build": "bili",
+    "example": "poi",
+    "build:example": "poi build"
+  },
+  "author": {
+    "name": "cristij",
+    "email": "joracristi@gmail.com"
+  },
+  "license": "MIT",
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist",
+    "homepage": "./"
+  },
+  "bili": {
+    "format": [
+      "cjs",
+      "umd"
+    ],
+    "plugins": [
+      "vue"
+    ],
+    "vue": {
+      "css": true
+    }
+  },
+  "devDependencies": {
+    "bili": "^0.19.0",
+    "poi": "^9.3.10",
+    "rollup-plugin-vue": "^2.5.2",
+    "sass-loader": "^6.0.6",
+    "test-vue-app": "^1.0.0",
+    "vue-test-utils": "^1.0.0-beta.2"
+  }
+}
