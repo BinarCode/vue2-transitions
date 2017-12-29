@@ -28,6 +28,11 @@
     "homepage": "./"
   },
   "babel": {
+    "presets": [
+      [
+        "vue-app"
+      ]
+    ],
     "plugins": [
       "preval",
       [
