@@ -1,12 +1,18 @@
-import FadeTransition from './FadeTransition.vue'
+import FadeTransition from './Fade/FadeTransition.vue'
+import FadeTransitionGroup from './Fade/FadeTransitionGroup.vue'
 
 let components = {
-  [FadeTransition.name]: FadeTransition
+  [FadeTransition.name]: FadeTransition,
+  [FadeTransitionGroup.name]: FadeTransitionGroup
 }
 const VueTransitions = {
   install(Vue, options) {
     if (options && options.components) {
       options.components.forEach(c => Vue.component(c.name, components[c.name]))
+    } else {
+      Object.keys(components).forEach((key) =>{
+        Vue.component(key, components[key])
+      });
     }
   }
 }
@@ -18,5 +24,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default VueTransitions
 
 export {
-  FadeTransition
+  FadeTransition,
+  FadeTransitionGroup
 }

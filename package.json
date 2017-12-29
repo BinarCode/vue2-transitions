@@ -27,6 +27,20 @@
     "dist": "example/dist",
     "homepage": "./"
   },
+  "babel": {
+    "plugins": [
+      "preval",
+      [
+        "component",
+        [
+          {
+            "libraryName": "element-ui",
+            "styleLibraryName": "theme-chalk"
+          }
+        ]
+      ]
+    ]
+  },
   "bili": {
     "format": [
       "cjs",
@@ -40,11 +54,20 @@
     }
   },
   "devDependencies": {
+    "babel-plugin-component": "^1.0.0",
+    "babel-plugin-preval": "^1.6.2",
     "bili": "^0.19.0",
+    "element-ui": "^2.0.10",
+    "lodash.kebabcase": "^4.1.1",
+    "marked3": "^0.5.1",
     "poi": "^9.3.10",
+    "prismjs": "^1.9.0",
     "rollup-plugin-vue": "^2.5.2",
     "sass-loader": "^6.0.6",
     "test-vue-app": "^1.0.0",
+    "typeface-nunito": "^0.0.44",
+    "v-tippy": "^1.0.2",
+    "vue-github-badge": "^1.0.1",
     "vue-test-utils": "^1.0.0-beta.2"
   }
 }

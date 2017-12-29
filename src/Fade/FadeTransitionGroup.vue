@@ -1,17 +1,17 @@
 <template>
-  <transition v-bind="$attrs"
+  <transition-group v-bind="$attrs"
               v-on="$listeners"
               @before-enter="beforeEnter"
               @before-leave="beforeLeave"
               enter-active-class="fadeIn"
               leave-active-class="fadeOut">
     <slot></slot>
-  </transition>
+  </transition-group>
 </template>
 <script>
-  import {baseTransition} from './mixins/index.js'
+  import {baseTransition} from '../mixins/index.js'
   export default {
-    name: 'fade-transition',
+    name: 'fade-transition-group',
     mixins: [baseTransition]
   }
 </script>
