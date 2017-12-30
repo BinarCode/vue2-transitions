@@ -13,7 +13,7 @@
     </header>
     <div class="main-content">
       <div class="transition-wrapper">
-        <component :is="kebab(transitionName)" appear :duration="duration">
+        <component :is="kebab(transitionName)" :duration="duration">
           <div v-show="show">
             <div class="box">
               <p>{{transitionName}}</p>
@@ -34,7 +34,7 @@
 
         </el-select>
         <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
-        <button class="btn btn-outline" v-tippy="{title: example}">Code</button>
+        <button class="btn btn-outline" v-tippy="codeOptions">Code</button>
         <button class="btn" @click="toggle">Trigger</button>
       </div>
 
@@ -149,7 +149,15 @@
       }
     },
     computed: {
+      codeOptions() {
+        return {
+          title: this.example,
+          interactive: true
+        }
+      },
       example() {
+        this.show = false
+        this.show = true
         return example
           .replace(/TRANSITION/g, this.transitionName)
           .replace(/kebab-transition/g, kebab(this.transitionName))

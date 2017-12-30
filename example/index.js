@@ -10,13 +10,14 @@ import locale from 'element-ui/lib/locale'
 locale.use(lang)
 
 Vue.use(Tippy, {
-  position: 'right',
+  position: 'top',
   theme: 'light',
   size: 'small',
-  animation: 'perspective',
+  animation: 'scale',
   performance: true,
   arrow: true,
-  trigger: 'click'
+  trigger: 'click',
+  duration: [200, 200]
 })
 Vue.use(Select)
 Vue.use(Option)
