@@ -6,9 +6,12 @@
     "url": "cristij/vue2-transitions",
     "type": "git"
   },
-  "main": "dist/vue2-transitions.common.js",
+  "main": "dist/vue2-transitions.cjs.js",
+  "module": "dist/vue2-transitions.m.js",
+  "unpkg": "dist/vue-transitions",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "prepublishOnly": "npm test && npm run build",
@@ -52,6 +55,7 @@
   "bili": {
     "format": [
       "cjs",
+      "es",
       "umd",
       "umd-min"
     ],
