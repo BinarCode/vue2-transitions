@@ -215,9 +215,15 @@
     background: linear-gradient(90deg, $primary-color, lighten($primary-color, 20) 70%, lighten($primary-color, 30));
     padding: 40px 0;
     width: 100%;
+
+  }
+  .header,
+  .header .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
 
   .desc {
@@ -246,12 +252,12 @@
   }
 
   .main-content {
-    padding: 0px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 300px);
+    min-height: calc(100vh - 320px);
+    padding: 0px 40px 20px;
   }
 
   .transition-wrapper {
