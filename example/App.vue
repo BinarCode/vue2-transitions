@@ -118,7 +118,7 @@
       let colors = generateRGBColors(5)
       return {
         colors,
-        transitions: ['FadeTransition'],
+        transitions: ['FadeTransition', 'ZoomCenterTransition', 'ZoomXTransition', 'ZoomYTransition'],
         transitionGroups: ['fade-transition-group'],
         selected: null,
         show: true,

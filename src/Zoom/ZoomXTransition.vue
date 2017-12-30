@@ -6,36 +6,54 @@
               @after-enter="cleanUpStyles"
               @before-leave="beforeLeave"
               @after-leave="cleanUpStyles"
-              enter-active-class="fadeIn"
-              leave-active-class="fadeOut">
+              enter-active-class="zoomInX"
+              leave-active-class="zoomOutX">
     <slot></slot>
   </component>
 </template>
 <script>
   import {baseTransition} from '../mixins/index.js'
+
   export default {
-    name: 'fade-transition',
+    name: 'zoom-x-transition',
+    props: {
+      styles: {
+        type: Object,
+        default: () => {
+          return {
+            animationFillMode: 'both',
+            animationTimingFunction: 'cubic-bezier(.55,0,.1,1)'
+          }
+        }
+      }
+    },
     mixins: [baseTransition]
   }
 </script>
 <style>
-  @keyframes fadeIn {
+  @keyframes zoomInX {
     from {
       opacity: 0;
+      transform: scaleX(0);
     }
 
-    to {
+    50% {
       opacity: 1;
     }
   }
 
-  .fadeIn {
-    animation-name: fadeIn;
+  .zoomInX {
+    animation-name: zoomInX;
   }
 
-  @keyframes fadeOut {
+  @keyframes zoomOutX {
     from {
       opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+      transform: scaleX(0);
     }
 
     to {
@@ -43,7 +61,7 @@
     }
   }
 
-  .fadeOut {
-    animation-name: fadeOut;
+  .zoomOutX {
+    animation-name: zoomOutX;
   }
 </style>

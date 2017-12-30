@@ -1,9 +1,19 @@
 import FadeTransition from './Fade/FadeTransition.vue'
 import FadeTransitionGroup from './Fade/FadeTransitionGroup.vue'
 
+import ZoomCenterTransition from './Zoom/ZoomCenterTransition.vue'
+import ZoomXTransition from './Zoom/ZoomXTransition.vue'
+import ZoomYTransition from './Zoom/ZoomYTransition.vue'
+import ZoomUpTransition from './Zoom/ZoomUpTransition.vue'
+
+
 let components = {
   [FadeTransition.name]: FadeTransition,
-  [FadeTransitionGroup.name]: FadeTransitionGroup
+  [FadeTransitionGroup.name]: FadeTransitionGroup,
+  [ZoomCenterTransition.name]: ZoomCenterTransition,
+  [ZoomXTransition.name]: ZoomXTransition,
+  [ZoomYTransition.name]: ZoomYTransition,
+  [ZoomUpTransition.name]: ZoomUpTransition,
 }
 const VueTransitions = {
   install(Vue, options) {
@@ -25,5 +35,9 @@ export default VueTransitions
 
 export {
   FadeTransition,
-  FadeTransitionGroup
+  FadeTransitionGroup,
+  ZoomCenterTransition,
+  ZoomXTransition,
+  ZoomYTransition,
+  ZoomUpTransition
 }
