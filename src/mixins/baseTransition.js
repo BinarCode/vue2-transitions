@@ -25,7 +25,7 @@ export default {
     beforeEnter(el) {
       let enterDuration = this.duration.enter ? this.duration.enter : this.duration
       el.style.animationDuration = `${enterDuration / 1000}s`
-      this.setAnimationProperties(el)
+      this.setStyles(el)
     },
     cleanUpStyles (el) {
       Object.keys(this.styles).forEach(key => {
@@ -38,9 +38,9 @@ export default {
     beforeLeave(el) {
       let leaveDuration = this.duration.leave ? this.duration.leave : this.duration
       el.style.animationDuration = `${leaveDuration / 1000}s`
-      this.setAnimationProperties(el)
+      this.setStyles(el)
     },
-    setAnimationProperties(el) {
+    setStyles(el) {
       Object.keys(this.styles).forEach(key => {
         const styleValue = this.styles[key]
         if (styleValue) {

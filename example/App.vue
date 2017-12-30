@@ -14,19 +14,24 @@
     <div class="main-content">
       <div class="transition-wrapper">
         <component :is="kebab(transitionName)" appear :duration="duration">
-          <div class="box" v-show="show">
-            <p>{{transitionName}}</p>
+          <div v-show="show">
+            <div class="box">
+              <p>{{transitionName}}</p>
+            </div>
           </div>
         </component>
       </div>
       <div class="transition-select">
         <el-select v-model="transitionName" class="select-primary">
-          <el-option v-for="transition in transitions"
-                     class="select-primary"
-                     :key="transition"
-                     :option="transition"
-                     :value="transition">
-          </el-option>
+          <el-option-group v-for="group in transitionOptions" :key="group.label" :label="group.label">
+            <el-option v-for="transition in group.options"
+                       class="select-primary"
+                       :key="transition"
+                       :option="transition"
+                       :value="transition">
+            </el-option>
+          </el-option-group>
+
         </el-select>
         <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
         <button class="btn btn-outline" v-tippy="{title: example}">Code</button>
@@ -91,11 +96,13 @@
   import Transitions from '../src'
 
   import Github from 'vue-github-badge'
+
   Vue.use(Transitions)
   import Icon from './Icon.vue'
   import {generateRGBColors} from './utils.js'
 
   import kebab from 'lodash.kebabcase'
+
   const example = preval`
   const fs = require('fs')
   require('prismjs')
@@ -118,7 +125,21 @@
       let colors = generateRGBColors(5)
       return {
         colors,
-        transitions: ['FadeTransition', 'ZoomCenterTransition', 'ZoomXTransition', 'ZoomYTransition'],
+        transitionOptions: [
+          {
+            label: 'Fade',
+            options: ['FadeTransition']
+          },
+          {
+            label: 'Zoom',
+            options: ['ZoomCenterTransition', 'ZoomXTransition', 'ZoomYTransition']
+          },
+          {
+            label: 'Collapse',
+            options: ['CollapseTransition']
+          }
+        ],
+        transitions: ['FadeTransition', 'ZoomCenterTransition', 'ZoomXTransition', 'ZoomYTransition', 'CollapseTransition'],
         transitionGroups: ['fade-transition-group'],
         selected: null,
         show: true,
@@ -135,7 +156,7 @@
       }
     },
     methods: {
-      kebab(name){
+      kebab(name) {
         return kebab(name)
       },
       toggle() {
@@ -158,6 +179,7 @@
   .tippy-tooltip {
     text-align: left;
   }
+
   .tippy-tooltip-content pre {
     margin: 0;
     padding: 16px;
@@ -166,11 +188,13 @@
     line-height: 1.45;
     border-radius: 3px;
   }
+
   .tippy-tooltip-content pre code {
     overflow: visible;
     word-wrap: normal;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
+
   .tippy-popper .tippy-tooltip.light-theme[data-animatefill] {
     background-color: white;
   }
@@ -180,17 +204,19 @@
   @import "assets/demo";
 
   .header {
-    background: linear-gradient(90deg,$primary-color, lighten($primary-color, 20) 70%,lighten($primary-color, 30));
+    background: linear-gradient(90deg, $primary-color, lighten($primary-color, 20) 70%, lighten($primary-color, 30));
     padding: 40px 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .desc {
     color: white;
     font-weight: 500;
   }
+
   .hero-heading {
     color: $secondary-color;
     margin: 0;
@@ -206,11 +232,12 @@
     margin: 0;
     font-family: Lato;
   }
+
   h1 {
     color: $primary-color;
   }
 
-  .main-content{
+  .main-content {
     padding: 0px 40px;
     display: flex;
     flex-direction: column;
@@ -219,15 +246,17 @@
     min-height: calc(100vh - 300px);
   }
 
-  .transition-wrapper{
+  .transition-wrapper {
     width: 400px;
     height: 250px;
   }
-  .transition-select{
+
+  .transition-select {
     .btn {
       margin-left: 10px;
     }
   }
+
   .box {
     margin: 10px 0px;
     width: 100%;
@@ -246,15 +275,16 @@
       color: white;
     }
   }
+
   @media (max-width: 800px) {
-    .transition-wrapper{
+    .transition-wrapper {
       width: 100%;
     }
-    .transition-select{
+    .transition-select {
       display: flex;
       flex-direction: column;
       .btn,
-      .el-input-number{
+      .el-input-number {
         margin-top: 10px;
         margin-left: 0;
         width: 100%;

@@ -16,6 +16,7 @@
 
   export default {
     name: 'zoom-y-transition',
+    mixins: [baseTransition],
     props: {
       styles: {
         type: Object,
@@ -27,7 +28,6 @@
         }
       }
     },
-    mixins: [baseTransition]
   }
 </script>
 <style>
@@ -39,6 +39,7 @@
 
     50% {
       opacity: 1;
+      tranform: scaleY(1)
     }
   }
 

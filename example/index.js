@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Tippy from 'v-tippy'
 import 'typeface-lato/index.css'
 import App from './App.vue'
-import { Select, Option, InputNumber } from 'element-ui'
+import { Select, Option, OptionGroup, InputNumber } from 'element-ui'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
 
@@ -20,6 +20,7 @@ Vue.use(Tippy, {
 })
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(OptionGroup)
 Vue.use(InputNumber)
 new Vue({
   el: '#app',

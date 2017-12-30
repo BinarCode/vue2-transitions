@@ -6899,14 +6899,6 @@ typeface-lato@^0.0.44:
   version "0.0.44"
   resolved "https://registry.yarnpkg.com/typeface-lato/-/typeface-lato-0.0.44.tgz#8fa3fd89aa3a89a34da806ed2a3493a28d99afa8"
 
-typeface-nunito@^0.0.44:
-  version "0.0.44"
-  resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-0.0.44.tgz#b297f904612d637a04ab5ad3bc1d0cf468011bf1"
-
-typeface-roboto@^0.0.45:
-  version "0.0.45"
-  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.45.tgz#4686bdd505b2db3b7ba0a980d216eb3d5aec4788"
-
 typescript@^2.4.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
@@ -7181,7 +7173,7 @@ vue-test-utils@^1.0.0-beta.2:
   dependencies:
     lodash "^4.17.4"
 
-vue@^2.3.3, vue@^2.4.4:
+vue@^2.3.3, vue@^2.4.4, vue@^2.5.13:
   version "2.5.13"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.13.tgz#95bd31e20efcf7a7f39239c9aa6787ce8cf578e1"
 

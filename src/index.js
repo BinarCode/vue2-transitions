@@ -6,6 +6,7 @@ import ZoomXTransition from './Zoom/ZoomXTransition.vue'
 import ZoomYTransition from './Zoom/ZoomYTransition.vue'
 import ZoomUpTransition from './Zoom/ZoomUpTransition.vue'
 
+import CollapseTransition from './Collapse/CollapseTransition.vue'
 
 let components = {
   [FadeTransition.name]: FadeTransition,
@@ -14,6 +15,7 @@ let components = {
   [ZoomXTransition.name]: ZoomXTransition,
   [ZoomYTransition.name]: ZoomYTransition,
   [ZoomUpTransition.name]: ZoomUpTransition,
+  [CollapseTransition.name]: CollapseTransition,
 }
 const VueTransitions = {
   install(Vue, options) {
@@ -39,5 +41,6 @@ export {
   ZoomCenterTransition,
   ZoomXTransition,
   ZoomYTransition,
-  ZoomUpTransition
+  ZoomUpTransition,
+  CollapseTransition
 }
