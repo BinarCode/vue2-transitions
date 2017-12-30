@@ -6,7 +6,7 @@
 
 ✨ Reusable component transitions
 
-## Why ?
+## Why :question:
  - Brings only the code that you need. 
    *Many alternative solutions import the whole animate.css library. Vue2-transitions is minimalistic and lets
    you import only the transitions that you need in your app*
@@ -19,7 +19,7 @@
  - Easy to use.
    *No extra classes*
  
-## Install
+## Install :coffee:
 
 ```bash
 yarn add vue2-transitions
@@ -27,7 +27,7 @@ yarn add vue2-transitions
 
 CDN: [UNPKG](https://unpkg.com/vue2-transitions/) | [jsDelivr](https://cdn.jsdelivr.net/npm/vue2-transitions/) (available as `window.Vue2Transitions`)
 
-## Usage
+## Usage :rocket:
 
 ```vue
 <template>
@@ -50,11 +50,11 @@ export default {
 ```
 
 ## List of available transitions
-- FadeTransition,
-- ZoomCenterTransition,
-- ZoomXTransition,
-- ZoomYTransition,
-- ZoomUpTransition,
+- FadeTransition
+- ZoomCenterTransition
+- ZoomXTransition
+- ZoomYTransition
+- ZoomUpTransition
 - CollapseTransition
 
 ## Props 
