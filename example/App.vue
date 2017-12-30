@@ -22,7 +22,7 @@
         </component>
       </div>
       <div class="transition-select">
-        <el-select v-model="transitionName" class="select-primary">
+        <el-select v-model="transitionName" class="select-primary" filterable>
           <el-option-group v-for="group in transitionOptions" :key="group.label" :label="group.label">
             <el-option v-for="transition in group.options"
                        class="select-primary"
