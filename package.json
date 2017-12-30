@@ -25,7 +25,10 @@
   "poi": {
     "entry": "example/index.js",
     "dist": "example/dist",
-    "homepage": "./"
+    "homepage": "./",
+    "html": {
+      "template": "example/index.html"
+    }
   },
   "babel": {
     "presets": [
@@ -49,8 +52,10 @@
   "bili": {
     "format": [
       "cjs",
-      "umd"
+      "umd",
+      "umd-min"
     ],
+    "name": "vue2-transitions",
     "plugins": [
       "vue"
     ],
@@ -61,7 +66,7 @@
   "devDependencies": {
     "babel-plugin-component": "^1.0.0",
     "babel-plugin-preval": "^1.6.2",
-    "bili": "^0.19.0",
+    "bili": "^1.3.3",
     "element-ui": "^2.0.10",
     "lodash.kebabcase": "^4.1.1",
     "marked3": "^0.5.1",

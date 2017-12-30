@@ -10,8 +10,12 @@
  - Brings only the code that you need. 
    *Many alternative solutions import the whole animate.css library. Vue2-transitions is minimalistic and lets
    you import only the transitions that you need in your app*
+   
+   Each transition component has **~2kb** (**~400 bytes** gzipped) and you can import only the ones you really need.
+   
  - Configurable.
    *You can configure animation enter and leave durations as well as all the props of the native Vue `transition` components through props*
+   
  - Easy to use.
    *No extra classes*
  
