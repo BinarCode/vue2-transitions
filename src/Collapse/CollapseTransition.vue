@@ -34,6 +34,7 @@
         el.style.height = '0';
         el.style.paddingTop = 0;
         el.style.paddingBottom = 0;
+        this.setStyles(el)
       },
 
       enter(el) {
@@ -66,6 +67,7 @@
 
         el.style.height = el.scrollHeight + 'px';
         el.style.overflow = 'hidden';
+        this.setStyles(el)
       },
 
       leave(el) {

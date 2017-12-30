@@ -1,11 +1,21 @@
 export default {
   inheritAttrs: false,
   props: {
+    /**
+     * Transition duration. Number for specifying the same duration for enter/leave transitions
+     * Object style {enter: 300, leave: 300} for specifying explicit durations for enter/leave
+     */
     duration: {
       type: [Number, Object],
       default: 300
     },
+    /**
+     * Whether the component should be a `transition-group` component.
+     */
     group: Boolean,
+    /**
+     * Element styles that are applied during transition. These styles are applied on @beforeEnter and @beforeLeave hooks
+     */
     styles: {
       type: Object,
       default: () => {
