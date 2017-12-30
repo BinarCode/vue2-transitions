@@ -15,8 +15,7 @@ let components = {
   [ZoomUpTransition.name]: ZoomUpTransition,
   [CollapseTransition.name]: CollapseTransition,
 }
-const VueTransitions = {
-  install(Vue, options) {
+ function install(Vue, options) {
     if (options && options.components) {
       options.components.forEach(c => Vue.component(c.name, components[c.name]))
     } else {
@@ -24,16 +23,14 @@ const VueTransitions = {
         Vue.component(key, components[key])
       });
     }
-  }
 }
 // Automatic installation if Vue has been added to the global scope.
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VueTransitions)
+  window.Vue.use({install})
 }
 
-export default VueTransitions
-
-export {
+export default {
+  install,
   FadeTransition,
   ZoomCenterTransition,
   ZoomXTransition,

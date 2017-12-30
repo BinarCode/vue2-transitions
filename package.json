@@ -55,6 +55,7 @@
       "umd",
       "umd-min"
     ],
+    "banner": true,
     "name": "vue2-transitions",
     "plugins": [
       "vue"
