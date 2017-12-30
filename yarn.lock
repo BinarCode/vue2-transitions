@@ -6895,9 +6895,17 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typeface-lato@^0.0.44:
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/typeface-lato/-/typeface-lato-0.0.44.tgz#8fa3fd89aa3a89a34da806ed2a3493a28d99afa8"
+
 typeface-nunito@^0.0.44:
   version "0.0.44"
   resolved "https://registry.yarnpkg.com/typeface-nunito/-/typeface-nunito-0.0.44.tgz#b297f904612d637a04ab5ad3bc1d0cf468011bf1"
+
+typeface-roboto@^0.0.45:
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.45.tgz#4686bdd505b2db3b7ba0a980d216eb3d5aec4788"
 
 typescript@^2.4.1:
   version "2.6.2"

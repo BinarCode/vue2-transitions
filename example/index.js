@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Tippy from 'v-tippy'
-import 'typeface-nunito/index.css'
+import 'typeface-lato/index.css'
 import App from './App.vue'
 import { Select, Option, InputNumber } from 'element-ui'
 import lang from 'element-ui/lib/locale/lang/en'

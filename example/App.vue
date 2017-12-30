@@ -204,7 +204,7 @@
   body {
     background-color: $body-color;
     margin: 0;
-    font-family: Nunito;
+    font-family: Lato;
   }
   h1 {
     color: $primary-color;
@@ -253,7 +253,8 @@
     .transition-select{
       display: flex;
       flex-direction: column;
-      .btn {
+      .btn,
+      .el-input-number{
         margin-top: 10px;
         margin-left: 0;
         width: 100%;
