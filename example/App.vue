@@ -13,7 +13,7 @@
     </header>
     <div class="main-content">
       <div class="transition-wrapper">
-        <component :is="kebab(transitionName)" appear>
+        <component :is="kebab(transitionName)" appear :duration="duration">
           <div class="box" v-show="show">
             <p>{{transitionName}}</p>
           </div>
@@ -28,6 +28,7 @@
                      :value="transition">
           </el-option>
         </el-select>
+        <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
         <button class="btn btn-outline" v-tippy="{title: example}">Code</button>
         <button class="btn" @click="toggle">Trigger</button>
       </div>
@@ -121,6 +122,7 @@
         transitionGroups: ['fade-transition-group'],
         selected: null,
         show: true,
+        duration: 300,
         transitionName: 'FadeTransition',
         transitionGroupName: 'fade-transition-group'
       }

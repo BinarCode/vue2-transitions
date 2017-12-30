@@ -1,4 +1,23 @@
 @import "variables";
+.el-input-number{
+  border: none;
+  .el-input-number__decrease{
+    border-radius: 20px 0 0 20px;
+    background-color: $primary-color;
+    color: white;
+  }
+  .el-input-number__increase{
+    border-radius: 0 20px 20px 0;
+    background-color: $primary-color;
+    color: white;
+  }
+  .el-input__inner{
+    border: 1px solid transparent !important;
+    background-color: white;
+    border-radius: 20px;
+
+  }
+}
 @mixin select($type, $color) {
   .select-#{$type}.el-select {
   }
