@@ -23,6 +23,7 @@
 ## Install :coffee:
 
 ```bash
+npm i vue2-transitions
 yarn add vue2-transitions
 ```
 
@@ -32,11 +33,11 @@ CDN: [UNPKG](https://unpkg.com/vue2-transitions/) | [jsDelivr](https://cdn.jsdel
 
 ```vue
 <template>
-   <FadeTransition>
+   <fade-transition>
       <div class="box" v-show="show">
         <p>Fade transition</p>
       </div>
-    </FadeTransition>
+    </fade-transition>
 </template>
 
 <script>
@@ -48,6 +49,12 @@ export default {
   }
 }
 </script>
+```
+
+## Global usage
+```js
+import Transitions from 'vue2-transitions'
+Vue.use(Transitions)
 ```
 
 ## List of available transitions
