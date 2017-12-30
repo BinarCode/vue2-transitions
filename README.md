@@ -64,6 +64,11 @@ Vue.use(Transitions)
 - ZoomYTransition
 - ZoomUpTransition
 - CollapseTransition
+- ScaleTransition
+- SlideXLeftTransition
+- SlideXRightTransition
+- SlideXUpTransition
+- SlideXDownTransition
 
 ## Props 
 ```js
@@ -75,11 +80,19 @@ props: {
   duration: {
     type: [Number, Object],
     default: 300
-  },
+  },  
   /**
    * Whether the component should be a `transition-group` component.
    */
   group: Boolean,
+  /**
+   *  Transform origin property https://tympanus.net/codrops/css_reference/transform-origin/.
+   *  Can be specified with styles as well but it's shorter with this prop
+   */
+  origin: {
+    type: String,
+    default: ''
+  },
   /**
    * Element styles that are applied during transition. These styles are applied on @beforeEnter and @beforeLeave hooks
    */
@@ -87,13 +100,16 @@ props: {
     type: Object,
     default: () => {
       return {
-        animationFillMode: 'both',
+        animationFillMode: 'both',  
         animationTimingFunction: 'ease-out'
       }
     }
   }
 }
 ```
+
+Besides the properties described above, you can pass in any other [Transition props or events](https://vuejs.org/v2/api/#transition)
+**Note** Overriding hooks (especially `beforeEnter` or `beforeLeave`) may cause unwanted effects.
 
 ## License
 

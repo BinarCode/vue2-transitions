@@ -14,6 +14,14 @@ export default {
      */
     group: Boolean,
     /**
+     *  Transform origin property https://tympanus.net/codrops/css_reference/transform-origin/.
+     *  Can be specified with styles as well but it's shorter with this prop
+     */
+    origin: {
+      type: String,
+      default: ''
+    },
+    /**
      * Element styles that are applied during transition. These styles are applied on @beforeEnter and @beforeLeave hooks
      */
     styles: {
@@ -27,8 +35,8 @@ export default {
     }
   },
   computed: {
-    componentType () {
-      return this.group ? 'transition-group': 'transition'
+    componentType() {
+      return this.group ? 'transition-group' : 'transition'
     }
   },
   methods: {
@@ -37,7 +45,7 @@ export default {
       el.style.animationDuration = `${enterDuration / 1000}s`
       this.setStyles(el)
     },
-    cleanUpStyles (el) {
+    cleanUpStyles(el) {
       Object.keys(this.styles).forEach(key => {
         const styleValue = this.styles[key]
         if (styleValue) {
@@ -51,6 +59,9 @@ export default {
       this.setStyles(el)
     },
     setStyles(el) {
+      if (this.origin) {
+        el.style.transformOrigin = this.origin
+      }
       Object.keys(this.styles).forEach(key => {
         const styleValue = this.styles[key]
         if (styleValue) {

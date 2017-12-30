@@ -137,6 +137,14 @@
           {
             label: 'Collapse',
             options: ['CollapseTransition']
+          },
+          {
+            label: 'Scale',
+            options: ['ScaleTransition']
+          },
+          {
+            label: 'Slide',
+            options: ['SlideYUpTransition', 'SlideYDownTransition', 'SlideXLeftTransition', 'SlideXRightTransition']
           }
         ],
         transitions: ['FadeTransition', 'ZoomCenterTransition', 'ZoomXTransition', 'ZoomYTransition', 'CollapseTransition'],

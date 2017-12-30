@@ -7,6 +7,13 @@ import ZoomUpTransition from './Zoom/ZoomUpTransition.vue'
 
 import CollapseTransition from './Collapse/CollapseTransition.vue'
 
+import ScaleTransition from './Scale/ScaleTransition.vue'
+
+import SlideYUpTransition from './Slide/SlideYUpTransition.vue'
+import SlideYDownTransition from './Slide/SlideYDownTransition.vue'
+import SlideXLeftTransition from './Slide/SlideXLeftTransition.vue'
+import SlideXRightTransition from './Slide/SlideXRightTransition.vue'
+
 let components = {
   [FadeTransition.name]: FadeTransition,
   [ZoomCenterTransition.name]: ZoomCenterTransition,
@@ -14,6 +21,11 @@ let components = {
   [ZoomYTransition.name]: ZoomYTransition,
   [ZoomUpTransition.name]: ZoomUpTransition,
   [CollapseTransition.name]: CollapseTransition,
+  [ScaleTransition.name]: ScaleTransition,
+  [SlideYUpTransition.name]: SlideYUpTransition,
+  [SlideYDownTransition.name]: SlideYDownTransition,
+  [SlideXLeftTransition.name]: SlideXLeftTransition,
+  [SlideXRightTransition.name]: SlideXRightTransition,
 }
  function install(Vue, options) {
     if (options && options.components) {
@@ -36,5 +48,10 @@ export default {
   ZoomXTransition,
   ZoomYTransition,
   ZoomUpTransition,
-  CollapseTransition
+  CollapseTransition,
+  ScaleTransition,
+  SlideYUpTransition,
+  SlideYDownTransition,
+  SlideXLeftTransition,
+  SlideXRightTransition
 }
