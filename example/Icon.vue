@@ -1,5 +1,5 @@
 <template>
-  <div class="icon" :style="style">
+  <div class="icon" :style="style" @click.stop="remove">
     <div v-if="withButton"
          class="icon-delete-btn"
          @mousedown="remove"></div>
@@ -77,9 +77,8 @@
     font-size: 12px;
     line-height: 52px;
     text-align: center;
-    transition: all 0.3s;
     cursor: pointer;
-
+    display: inline-block;
   }
   .icon .icon-delete-btn {
     display: block;

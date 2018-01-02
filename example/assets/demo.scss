@@ -16,6 +16,15 @@ $--md-fade-transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), opacity 2
   transform: scaleY(0);
 }
 
+.el-switch.is-checked .el-switch__core{
+  background-color: $primary-color;
+  color: $primary-color;
+  border-color: $primary-color;
+}
+.el-switch__label.is-active{
+  color: $primary-color;
+}
+
 .el-input-number{
   border: none;
   .el-input-number__decrease{

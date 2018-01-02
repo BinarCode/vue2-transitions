@@ -12,82 +12,58 @@
       </div>
     </header>
     <div class="main-content">
-      <div class="transition-wrapper">
-        <component :is="kebab(transitionName)" :duration="duration" appear>
+      <div class="transition-wrapper" :class="{group: isGroup}" >
+        <component :is="kebab(transitionName)" :duration="duration" appear v-if="!isGroup">
           <div v-show="show">
             <div class="box">
               <p>{{transitionName}}</p>
             </div>
           </div>
         </component>
-      </div>
-      <div class="transition-select">
-        <el-select v-model="transitionName" class="select-primary" filterable>
-          <el-option-group v-for="group in transitionOptions" :key="group.label" :label="group.label">
-            <el-option v-for="transition in group.options"
-                       class="select-primary"
-                       :key="transition"
-                       :option="transition"
-                       :value="transition">
-            </el-option>
-          </el-option-group>
-
-        </el-select>
-        <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
-        <button class="btn" @click="toggle">Trigger</button>
-        <button class="btn btn-outline" v-tippy="codeOptions">Code</button>
-      </div>
-
-    </div>
-    <!--<div class="f-row">
-      <div class="f-column">
-        <div class="f-row">
-          <div class="mr-5">
-            <h3>Simple transitions</h3>
-            <el-select v-model="transitionName">
-              <el-option v-for="transition in transitions"
-                      :key="transition"
-                      :value="transition">
-                {{transition}}
-              </el-option>
-            </el-select>
-            <div style="margin-top: 20px;">
-              <button class="btn" v-tippy="{title: example, interactive: true}">Show code</button>
-            </div>
-          </div>
-          <div >
-
-
-          </div>
-        </div>
-      </div>
-      <div class="f-column">
-        <div class="f-row">
-          <div class="mr-5">
-            <h3>List Transitions</h3>
-            <select v-model="transitionGroupName">
-              <option v-for="transition in transitionGroups"
-                      :key="transition"
-                      :value="transition">
-                {{transition}}
-              </option>
-            </select>
-          </div>
+        <div class="transition-group-wrapper" v-else>
+          <button class="btn btn-outline" @click="add">Add item</button>
           <div>
-            <h3>{{transitionGroupName}}</h3>
-            <button class="btn" @click="add">Add item</button>
-            <fade-transition-group class="f-row">
+            <component :is="kebab(transitionName)" group :duration="duration">
               <Icon v-for="(color,index) in colors" :color="color"
                     :key="color.key"
                     :index="index"
                     :with-button="true"
                     @remove="remove(index)"
               />
-            </fade-transition-group>
+            </component>
           </div>
         </div>
       </div>
-    </div>-->
+
+      <div class="transition-select">
+        <div>
+          <el-select v-model="transitionName" class="select-primary">
+            <el-option-group v-for="group in transitionOptions" :key="group.label" :label="group.label">
+              <el-option v-for="transition in group.options"
+                         class="select-primary"
+                         :key="transition"
+                         :option="transition"
+                         :value="transition">
+              </el-option>
+            </el-option-group>
+
+          </el-select>
+
+          <button class="btn" @click="toggle">Trigger</button>
+          <button class="btn btn-outline" v-tippy="codeOptions">Code</button>
+        </div>
+        <div class="transition-settings">
+          <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
+          <el-switch
+            v-model="isGroup"
+            active-text="Group"
+            inactive-text="Simple">
+          </el-switch>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -151,7 +127,8 @@
         transitionGroups: ['fade-transition-group'],
         selected: null,
         show: true,
-        duration: 500,
+        isGroup: false,
+        duration: 300,
         transitionName: 'FadeTransition',
         transitionGroupName: 'fade-transition-group'
       }
@@ -166,9 +143,18 @@
       example() {
         this.show = false
         this.show = true
-        return example
+        let sampleCode = example
           .replace(/TRANSITION/g, this.transitionName)
           .replace(/kebab-transition/g, kebab(this.transitionName))
+        if(!this.isGroup){
+          sampleCode = sampleCode.replace(/group/g, '')
+        }
+        if(this.duration !== 300){
+          sampleCode = sampleCode.replace(/duration/g, `:duration="${this.duration}"`)
+        } else {
+          sampleCode = sampleCode.replace(/duration/g, '')
+        }
+        return sampleCode
       }
     },
     methods: {
@@ -180,7 +166,10 @@
       },
       add() {
         let newColor = generateRGBColors(1)
-        this.colors.push(...newColor)
+        this.colors.splice(this.randomIndex(), 0, newColor[0])
+      },
+      randomIndex() {
+        return Math.floor(Math.random() * this.colors.length)
       },
       remove(index) {
         this.colors.splice(index, 1)
@@ -225,6 +214,7 @@
     width: 100%;
 
   }
+
   .header,
   .header .container {
     display: flex;
@@ -265,12 +255,34 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 320px);
-    padding: 0px 40px 20px;
+    padding: 0px 40px 80px;
   }
 
   .transition-wrapper {
     width: 400px;
-    height: 250px;
+    min-height: 250px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    &.group{
+      width: 600px;
+    }
+  }
+  .transition-group-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+  }
+  .transition-settings {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .el-switch {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
   }
 
   .transition-select {
@@ -300,12 +312,22 @@
 
   @media (max-width: 800px) {
     .transition-wrapper {
+      &.group{
+        width: 100%;
+      }
       width: 100%;
+    }
+    .transition-settings{
+      margin-top: 0;
+      .el-switch{
+        margin-right: 0;
+      }
     }
     .transition-select {
       display: flex;
       flex-direction: column;
       .btn,
+      .el-select,
       .el-input-number {
         margin-top: 10px;
         margin-left: 0;
