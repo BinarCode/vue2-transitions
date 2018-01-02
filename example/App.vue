@@ -123,14 +123,11 @@
             options: ['SlideYUpTransition', 'SlideYDownTransition', 'SlideXLeftTransition', 'SlideXRightTransition']
           }
         ],
-        transitions: ['FadeTransition', 'ZoomCenterTransition', 'ZoomXTransition', 'ZoomYTransition', 'CollapseTransition'],
-        transitionGroups: ['fade-transition-group'],
         selected: null,
         show: true,
         isGroup: false,
         duration: 300,
-        transitionName: 'FadeTransition',
-        transitionGroupName: 'fade-transition-group'
+        transitionName: 'FadeTransition'
       }
     },
     computed: {
