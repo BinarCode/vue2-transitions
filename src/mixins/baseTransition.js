@@ -37,6 +37,16 @@ export default {
   computed: {
     componentType() {
       return this.group ? 'transition-group' : 'transition'
+    },
+    hooks() {
+      return {
+        beforeEnter: this.beforeEnter,
+        afterEnter: this.cleanUpStyles,
+        beforeLeave: this.beforeLeave,
+        leave: this.leave,
+        afterLeave: this.cleanUpStyles,
+        ...this.$listeners
+      }
     }
   },
   methods: {
@@ -58,16 +68,29 @@ export default {
       el.style.animationDuration = `${leaveDuration / 1000}s`
       this.setStyles(el)
     },
+    leave(el) {
+      this.setAbsolutePosition(el)
+    },
     setStyles(el) {
-      if (this.origin) {
-        el.style.transformOrigin = this.origin
-      }
+      this.setTransformOrigin(el)
       Object.keys(this.styles).forEach(key => {
         const styleValue = this.styles[key]
         if (styleValue) {
           el.style[key] = styleValue
         }
       })
+    },
+    setAbsolutePosition(el) {
+      if (this.group) {
+        el.style.position = 'absolute'
+      }
+      return this
+    },
+    setTransformOrigin(el) {
+      if (this.origin) {
+        el.style.transformOrigin = this.origin
+      }
+      return this
     }
   }
 }
