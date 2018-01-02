@@ -3,7 +3,6 @@ import FadeTransition from './Fade/FadeTransition.vue'
 import ZoomCenterTransition from './Zoom/ZoomCenterTransition.vue'
 import ZoomXTransition from './Zoom/ZoomXTransition.vue'
 import ZoomYTransition from './Zoom/ZoomYTransition.vue'
-import ZoomUpTransition from './Zoom/ZoomUpTransition.vue'
 
 import CollapseTransition from './Collapse/CollapseTransition.vue'
 
@@ -19,7 +18,6 @@ let components = {
   [ZoomCenterTransition.name]: ZoomCenterTransition,
   [ZoomXTransition.name]: ZoomXTransition,
   [ZoomYTransition.name]: ZoomYTransition,
-  [ZoomUpTransition.name]: ZoomUpTransition,
   [CollapseTransition.name]: CollapseTransition,
   [ScaleTransition.name]: ScaleTransition,
   [SlideYUpTransition.name]: SlideYUpTransition,
@@ -47,7 +45,6 @@ export default {
   ZoomCenterTransition,
   ZoomXTransition,
   ZoomYTransition,
-  ZoomUpTransition,
   CollapseTransition,
   ScaleTransition,
   SlideYUpTransition,
