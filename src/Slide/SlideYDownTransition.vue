@@ -1,11 +1,7 @@
 <template>
   <component :is="componentType"
              v-bind="$attrs"
-             v-on="$listeners"
-             @before-enter="beforeEnter"
-             @after-enter="cleanUpStyles"
-             @before-leave="beforeLeave"
-             @after-leave="cleanUpStyles"
+             v-on="hooks"
              enter-active-class="slideYDownIn"
              leave-active-class="slideYDownOut">
     <slot></slot>
@@ -29,7 +25,8 @@
     }
   }
 </script>
-<style>
+<style lang="scss">
+  @import "move";
   @keyframes slideYDownIn {
     from {
       opacity: 0;

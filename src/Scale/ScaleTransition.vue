@@ -1,12 +1,9 @@
 <template>
   <component :is="componentType"
              v-bind="$attrs"
-             v-on="$listeners"
-             @before-enter="beforeEnter"
-             @after-enter="cleanUpStyles"
-             @before-leave="beforeLeave"
-             @after-leave="cleanUpStyles"
+             v-on="hooks"
              enter-active-class="scaleIn"
+             move-class="scale-move"
              leave-active-class="scaleOut">
     <slot></slot>
   </component>
@@ -61,5 +58,8 @@
 
   .scaleOut {
     animation-name: scaleOut;
+  }
+  .scale-move{
+    transition: transform .3s cubic-bezier(.25,.8,.50,1);
   }
 </style>

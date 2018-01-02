@@ -1,13 +1,10 @@
 <template>
   <component :is="componentType"
-              v-bind="$attrs"
-              v-on="$listeners"
-              @before-enter="beforeEnter"
-              @after-enter="cleanUpStyles"
-              @before-leave="beforeLeave"
-              @after-leave="cleanUpStyles"
-              enter-active-class="zoomInUp"
-              leave-active-class="zoomOutUp">
+             v-bind="$attrs"
+             v-on="hooks"
+             enter-active-class="zoomInUp"
+             move-class="zoom-move"
+             leave-active-class="zoomOutUp">
     <slot></slot>
   </component>
 </template>
@@ -31,6 +28,7 @@
   }
 </script>
 <style lang="scss">
+  @import "move";
 
   @keyframes zoomInUp {
     from {

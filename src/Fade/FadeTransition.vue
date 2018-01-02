@@ -1,12 +1,9 @@
 <template>
   <component :is="componentType"
               v-bind="$attrs"
-              v-on="$listeners"
-              @before-enter="beforeEnter"
-              @after-enter="cleanUpStyles"
-              @before-leave="beforeLeave"
-              @after-leave="cleanUpStyles"
+              v-on="hooks"
               enter-active-class="fadeIn"
+              move-class="fade-move"
               leave-active-class="fadeOut">
     <slot></slot>
   </component>
@@ -45,5 +42,8 @@
 
   .fadeOut {
     animation-name: fadeOut;
+  }
+  .fade-move{
+    transition: transform .3s ease-out;
   }
 </style>

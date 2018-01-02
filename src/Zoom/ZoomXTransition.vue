@@ -1,13 +1,10 @@
 <template>
   <component :is="componentType"
-              v-bind="$attrs"
-              v-on="$listeners"
-              @before-enter="beforeEnter"
-              @after-enter="cleanUpStyles"
-              @before-leave="beforeLeave"
-              @after-leave="cleanUpStyles"
-              enter-active-class="zoomInX"
-              leave-active-class="zoomOutX">
+             v-bind="$attrs"
+             v-on="hooks"
+             enter-active-class="zoomInX"
+             move-class="zoom-move"
+             leave-active-class="zoomOutX">
     <slot></slot>
   </component>
 </template>
@@ -30,7 +27,9 @@
     mixins: [baseTransition]
   }
 </script>
-<style>
+<style lang="scss">
+  @import "move";
+
   @keyframes zoomInX {
     from {
       opacity: 0;

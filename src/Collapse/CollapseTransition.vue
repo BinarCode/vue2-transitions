@@ -7,7 +7,8 @@
              @enter="enter"
              @before-leave="beforeLeave"
              @leave="leave"
-             @after-leave="afterLeave">
+             @after-leave="afterLeave"
+             move-class="collapse-move">
     <slot></slot>
   </component>
 </template>
@@ -79,6 +80,8 @@
           el.style.paddingTop = 0;
           el.style.paddingBottom = 0;
         }
+        // necessary for transition-group
+        this.setAbsolutePosition(el)
       },
 
       afterLeave(el) {
@@ -92,4 +95,7 @@
   }
 </script>
 <style>
+  .collapse-move{
+    transition: transform .3s ease-in-out;
+  }
 </style>

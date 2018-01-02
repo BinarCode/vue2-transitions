@@ -1,12 +1,9 @@
 <template>
   <component :is="componentType"
              v-bind="$attrs"
-             v-on="$listeners"
-             @before-enter="beforeEnter"
-             @after-enter="cleanUpStyles"
-             @before-leave="beforeLeave"
-             @after-leave="cleanUpStyles"
+             v-on="hooks"
              enter-active-class="slideXRightIn"
+             move-class="slide-move"
              leave-active-class="slideXRightOut">
     <slot></slot>
   </component>
@@ -29,7 +26,8 @@
     }
   }
 </script>
-<style>
+<style lang="scss">
+  @import "move";
   @keyframes slideXRightIn {
     from {
       opacity: 0;
