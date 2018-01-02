@@ -188,3 +188,7 @@ Besides the properties described above, you can pass in any other [Transition pr
 ## License
 
 MIT &copy; [cristij](https://github.com/cristij)
+
+## Special thanks to
+
+@euvl (The UI for list transitions in the demo is inspired by [vue-js-grid demo](https://github.com/euvl/vue-js-grid) )  
