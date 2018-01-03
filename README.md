@@ -187,7 +187,7 @@ Besides the properties described above, you can pass in any other [Transition pr
 
 ## License
 
-MIT &copy; [cristij](https://github.com/cristij)
+MIT &copy; [cristijora](https://github.com/cristijora)
 
 ## Special thanks to
 
