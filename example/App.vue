@@ -12,7 +12,7 @@
       </div>
     </header>
     <div class="main-content">
-      <div class="transition-wrapper" :class="{group: isGroup}" >
+      <div class="transition-wrapper" :class="{group: isGroup}">
         <component :is="kebab(transitionName)" :duration="duration" appear v-if="!isGroup">
           <div v-show="show">
             <div class="box">
@@ -21,7 +21,6 @@
           </div>
         </component>
         <div class="transition-group-wrapper" v-else>
-          <button class="btn btn-outline" @click="add">Add item</button>
           <div>
             <component :is="kebab(transitionName)" group :duration="duration">
               <Icon v-for="(color,index) in colors" :color="color"
@@ -49,8 +48,8 @@
 
           </el-select>
 
-          <button class="btn" @click="toggle">Trigger</button>
-          <button class="btn btn-outline" v-tippy="codeOptions">Code</button>
+          <button class="btn" @click="triggerTransition">{{isGroup ? 'Add Item' : 'Trigger' }}</button>
+          <button class="btn btn-outline" v-tippy="{interactive: true}" :title="example">Code</button>
         </div>
         <div class="transition-settings">
           <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
@@ -131,22 +130,14 @@
       }
     },
     computed: {
-      codeOptions() {
-        return {
-          title: this.example,
-          interactive: true
-        }
-      },
       example() {
-        this.show = false
-        this.show = true
         let sampleCode = example
           .replace(/TRANSITION/g, this.transitionName)
           .replace(/kebab-transition/g, kebab(this.transitionName))
-        if(!this.isGroup){
+        if (!this.isGroup) {
           sampleCode = sampleCode.replace(/group/g, '')
         }
-        if(this.duration !== 300){
+        if (this.duration !== 300) {
           sampleCode = sampleCode.replace(/duration/g, `:duration="${this.duration}"`)
         } else {
           sampleCode = sampleCode.replace(/duration/g, '')
@@ -158,8 +149,12 @@
       kebab(name) {
         return kebab(name)
       },
-      toggle() {
-        this.show = !this.show
+      triggerTransition() {
+        if (this.isGroup) {
+          this.add()
+        } else {
+          this.show = !this.show
+        }
       },
       add() {
         let newColor = generateRGBColors(1)
@@ -260,16 +255,18 @@
     min-height: 250px;
     margin-top: 50px;
     margin-bottom: 20px;
-    &.group{
+    &.group {
       width: 600px;
     }
   }
+
   .transition-group-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
   }
+
   .transition-settings {
     margin-top: 10px;
     display: flex;
@@ -309,14 +306,14 @@
 
   @media (max-width: 800px) {
     .transition-wrapper {
-      &.group{
+      &.group {
         width: 100%;
       }
       width: 100%;
     }
-    .transition-settings{
+    .transition-settings {
       margin-top: 0;
-      .el-switch{
+      .el-switch {
         margin-right: 0;
       }
     }
