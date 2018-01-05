@@ -1,5 +1,6 @@
 <template>
   <component :is="componentType"
+             tag="span"
              v-bind="$attrs"
              v-on="hooks"
              enter-active-class="slideXLeftIn"
@@ -10,6 +11,7 @@
 </template>
 <script>
   import {baseTransition} from '../mixins/index.js'
+
   export default {
     name: 'slide-x-left-transition',
     mixins: [baseTransition],
@@ -28,6 +30,7 @@
 </script>
 <style lang="scss">
   @import "move";
+
   @keyframes slideXLeftIn {
     from {
       opacity: 0;
@@ -42,6 +45,7 @@
   .slideXLeftIn {
     animation-name: slideXLeftIn;
   }
+
   @keyframes slideXLeftOut {
     from {
       opacity: 1;

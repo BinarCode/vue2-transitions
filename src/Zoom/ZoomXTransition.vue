@@ -1,5 +1,6 @@
 <template>
   <component :is="componentType"
+             tag="span"
              v-bind="$attrs"
              v-on="hooks"
              enter-active-class="zoomInX"

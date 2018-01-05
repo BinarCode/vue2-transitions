@@ -1,5 +1,6 @@
 <template>
   <component :is="componentType"
+             tag="span"
              v-bind="$attrs"
              v-on="hooks"
              enter-active-class="scaleIn"
@@ -10,6 +11,7 @@
 </template>
 <script>
   import {baseTransition} from '../mixins/index.js'
+
   export default {
     name: 'scale-transition',
     mixins: [baseTransition],
@@ -45,6 +47,7 @@
   .scaleIn {
     animation-name: scaleIn;
   }
+
   @keyframes scaleOut {
     from {
       opacity: 1;
@@ -59,7 +62,8 @@
   .scaleOut {
     animation-name: scaleOut;
   }
-  .scale-move{
-    transition: transform .3s cubic-bezier(.25,.8,.50,1);
+
+  .scale-move {
+    transition: transform .3s cubic-bezier(.25, .8, .50, 1);
   }
 </style>

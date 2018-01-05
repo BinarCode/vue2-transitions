@@ -1,5 +1,6 @@
 <template>
   <component :is="componentType"
+             tag="span"
              v-bind="$attrs"
              v-on="$listeners"
              @before-enter="beforeEnter"
@@ -95,7 +96,7 @@
   }
 </script>
 <style>
-  .collapse-move{
+  .collapse-move {
     transition: transform .3s ease-in-out;
   }
 </style>

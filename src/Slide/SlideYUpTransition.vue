@@ -1,5 +1,6 @@
 <template>
   <component :is="componentType"
+             tag="span"
              type="animation"
              v-bind="$attrs"
              v-on="hooks"
@@ -11,6 +12,7 @@
 </template>
 <script>
   import {baseTransition} from '../mixins/index.js'
+
   export default {
     name: 'slide-y-up-transition',
     mixins: [baseTransition],
@@ -29,6 +31,7 @@
 </script>
 <style lang="scss">
   @import "move";
+
   @keyframes slideYIn {
     from {
       opacity: 0;
@@ -43,6 +46,7 @@
   .slideYIn {
     animation-name: slideYIn;
   }
+
   @keyframes slideYOut {
     from {
       opacity: 1;

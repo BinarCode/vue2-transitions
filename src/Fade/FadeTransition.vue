@@ -1,15 +1,17 @@
 <template>
   <component :is="componentType"
-              v-bind="$attrs"
-              v-on="hooks"
-              enter-active-class="fadeIn"
-              move-class="fade-move"
-              leave-active-class="fadeOut">
+             tag="span"
+             v-bind="$attrs"
+             v-on="hooks"
+             enter-active-class="fadeIn"
+             move-class="fade-move"
+             leave-active-class="fadeOut">
     <slot></slot>
   </component>
 </template>
 <script>
   import {baseTransition} from '../mixins/index.js'
+
   export default {
     name: 'fade-transition',
     mixins: [baseTransition]
@@ -43,7 +45,8 @@
   .fadeOut {
     animation-name: fadeOut;
   }
-  .fade-move{
+
+  .fade-move {
     transition: transform .3s ease-out;
   }
 </style>
