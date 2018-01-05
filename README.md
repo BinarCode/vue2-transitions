@@ -86,6 +86,13 @@ props: {
    */
   group: Boolean,
   /**
+   * Transition tag, in case the component is a `transition-group`
+   */
+  tag: {
+    type: String,
+    default: 'span'
+  },
+  /**
    *  Transform origin property https://tympanus.net/codrops/css_reference/transform-origin/.
    *  Can be specified with styles as well but it's shorter with this prop
    */

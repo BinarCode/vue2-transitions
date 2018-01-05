@@ -1,6 +1,6 @@
 <template>
   <component :is="componentType"
-             tag="span"
+             :tag="tag"
              type="animation"
              v-bind="$attrs"
              v-on="hooks"

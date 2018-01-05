@@ -1,6 +1,6 @@
 <template>
   <component :is="componentType"
-             tag="span"
+             :tag="tag"
              v-bind="$attrs"
              v-on="hooks"
              enter-active-class="slideXLeftIn"
