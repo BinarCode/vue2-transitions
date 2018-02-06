@@ -69,6 +69,7 @@ export default {
           el.style[key] = ''
         }
       })
+      el.style.animationDuration = ''
     },
     beforeLeave(el) {
       let leaveDuration = this.duration.leave ? this.duration.leave : this.duration
