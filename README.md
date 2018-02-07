@@ -62,7 +62,6 @@ Vue.use(Transitions)
 - ZoomCenterTransition
 - ZoomXTransition
 - ZoomYTransition
-- ZoomUpTransition
 - CollapseTransition
 - ScaleTransition
 - SlideXLeftTransition
