@@ -66,8 +66,8 @@ Vue.use(Transitions)
 - ScaleTransition
 - SlideXLeftTransition
 - SlideXRightTransition
-- SlideXUpTransition
-- SlideXDownTransition
+- SlideYUpTransition
+- SlideYDownTransition
 
 ## Props 
 ```js
