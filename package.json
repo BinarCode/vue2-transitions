@@ -9,6 +9,7 @@
   "main": "dist/vue2-transitions.cjs.js",
   "module": "dist/vue2-transitions.m.js",
   "unpkg": "dist/vue-transitions",
+  "typings": "types/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -16,6 +17,7 @@
   "scripts": {
     "prepublishOnly": "npm test && npm run build",
     "test": "test-vue-app",
+    "test:types": "tsc -p ./types/test/tsconfig.json",
     "build": "bili",
     "example": "poi",
     "build:example": "poi build"
@@ -81,6 +83,7 @@
     "sass-loader": "^6.0.6",
     "test-vue-app": "^1.0.0",
     "typeface-lato": "^0.0.44",
+    "typescript": "^2.9.2",
     "v-tippy": "^1.0.2",
     "vue": "^2.5.13",
     "vue-github-badge": "^1.0.1",

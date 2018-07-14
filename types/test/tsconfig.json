@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "module": "commonjs",
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "vue2-transitions": ["../index.d.ts"]
+    }
+  },
+  "files": [
+    "../index.d.ts",
+  ],
+  "compileOnSave": false
+}
