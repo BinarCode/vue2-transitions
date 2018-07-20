@@ -1,6 +1,6 @@
 # vue2-transitions
 
-## [Demo](https://cristijora.github.io/vue2-transitions)
+## [Demo](https://binarcode.github.io/vue2-transitions)
 ## [Codesandbox](https://codesandbox.io/s/v80qxp7nwy)
 
 [![NPM version](https://img.shields.io/npm/v/vue2-transitions.svg?style=flat)](https://npmjs.com/package/vue2-transitions) [![NPM downloads](https://img.shields.io/npm/dm/vue2-transitions.svg?style=flat)](https://npmjs.com/package/vue2-transitions) [![CircleCI](https://circleci.com/gh/cristij/vue2-transitions/tree/master.svg?style=shield)](https://circleci.com/gh/cristij/vue2-transitions/tree/master)
