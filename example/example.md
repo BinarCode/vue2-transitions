@@ -1,6 +1,6 @@
 ```vue
 <template>
-  <kebab-transition group duration>
+  <kebab-transition[group][duration][delay]>
     <div v-show="show">Your content here</div> 
   </kebab-transition>
 </template>

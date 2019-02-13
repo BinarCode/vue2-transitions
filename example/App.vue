@@ -13,7 +13,7 @@
     </header>
     <div class="main-content">
       <div class="transition-wrapper" :class="{group: isGroup}">
-        <component :is="kebab(transitionName)" :duration="duration" appear v-if="!isGroup">
+        <component :is="kebab(transitionName)" :duration="duration" :delay="delay" appear v-if="!isGroup">
           <div v-show="show">
             <div class="box">
               <p>{{transitionName}}</p>
@@ -22,7 +22,7 @@
         </component>
         <div class="transition-group-wrapper" v-else>
           <div>
-            <component :is="kebab(transitionName)" group :duration="duration">
+            <component :is="kebab(transitionName)" group :duration="duration" :delay="delay">
               <Icon v-for="(color,index) in colors" :color="color"
                     :key="color.key"
                     :index="index"
@@ -52,12 +52,21 @@
           <button class="btn btn-outline" v-tippy="{interactive: true}" :title="example">Code</button>
         </div>
         <div class="transition-settings">
-          <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
-          <el-switch
-            v-model="isGroup"
-            active-text="Group"
-            inactive-text="Simple">
-          </el-switch>
+          <div class="transition-settings_setting">
+            Duration
+            <el-input-number :step="100" v-model="duration" placeholder="Duration"></el-input-number>
+          </div>
+          <div class="transition-settings_setting">
+            Delay
+            <el-input-number :step="100" v-model="delay" placeholder="Delay"></el-input-number>
+          </div>
+          <div class="transition-settings_setting">
+            <el-switch
+              v-model="isGroup"
+              active-text="Group"
+              inactive-text="Simple">
+            </el-switch>
+          </div>
         </div>
       </div>
 
@@ -126,6 +135,7 @@
         show: true,
         isGroup: false,
         duration: 300,
+        delay: 0,
         transitionName: 'FadeTransition'
       }
     },
@@ -134,13 +144,22 @@
         let sampleCode = example
           .replace(/TRANSITION/g, this.transitionName)
           .replace(/kebab-transition/g, kebab(this.transitionName))
-        if (!this.isGroup) {
-          sampleCode = sampleCode.replace(/group/g, '')
-        }
-        if (this.duration !== 300) {
-          sampleCode = sampleCode.replace(/duration/g, `:duration="${this.duration}"`)
+        if (this.isGroup) {
+          sampleCode = sampleCode.replace(/\[group\]/g, '')
         } else {
-          sampleCode = sampleCode.replace(/duration/g, '')
+          sampleCode = sampleCode.replace(/\[group\]/g, ' group')
+        }
+
+        if (this.duration !== 300) {
+          sampleCode = sampleCode.replace(/\[duration\]/g, ` :duration="${this.duration}"`)
+        } else {
+          sampleCode = sampleCode.replace(/\[duration\]/g, '')
+        }
+
+        if (this.delay !== 0) {
+          sampleCode = sampleCode.replace(/\[delay\]/g, ` :delay="${this.delay}"`)
+        } else {
+          sampleCode = sampleCode.replace(/\[delay\]/g, '')
         }
         return sampleCode
       }
@@ -273,9 +292,19 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
     .el-switch {
-      margin-left: 20px;
       margin-top: 10px;
+    }
+
+    &_setting {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+
+      .el-input-number {
+        margin-top: 10px;
+      }
     }
   }
 
@@ -315,6 +344,10 @@
       margin-top: 0;
       .el-switch {
         margin-right: 0;
+      }
+      &_setting {
+        margin-left: 0px;
+        margin-bottom: 10px;
       }
     }
     .transition-select {
