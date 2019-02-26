@@ -55,12 +55,18 @@ export default {
     },
     hooks() {
       return {
+        ...this.$listeners,
         beforeEnter: this.beforeEnter,
-        afterEnter: this.cleanUpStyles,
+        afterEnter: (el) => {
+          this.cleanUpStyles(el)
+          this.$emit('after-enter', el)
+        },
         beforeLeave: this.beforeLeave,
         leave: this.leave,
-        afterLeave: this.cleanUpStyles,
-        ...this.$listeners
+        afterLeave: (el) => {
+          this.cleanUpStyles(el)
+          this.$emit('after-leave', el)
+        },
       }
     }
   },
@@ -73,6 +79,7 @@ export default {
       el.style.animationDelay = `${enterDelay}ms`
 
       this.setStyles(el)
+      this.$emit('before-enter', el)
     },
     cleanUpStyles(el) {
       Object.keys(this.styles).forEach(key => {
@@ -92,9 +99,11 @@ export default {
       el.style.animationDelay = `${leaveDelay}ms`
 
       this.setStyles(el)
+      this.$emit('before-leave', el)
     },
-    leave(el) {
+    leave(el, done) {
       this.setAbsolutePosition(el)
+      this.$emit('leave', el, done)
     },
     setStyles(el) {
       this.setTransformOrigin(el)
