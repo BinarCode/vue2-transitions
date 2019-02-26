@@ -20,6 +20,7 @@
     "test:types": "tsc -p ./types/test/tsconfig.json",
     "build": "bili",
     "example": "poi",
+    "dev": "poi",
     "build:example": "poi build"
   },
   "author": {
