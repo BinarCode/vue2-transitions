@@ -10,6 +10,14 @@ export default {
       default: 300
     },
     /**
+     * Transition delay. Number for specifying the same delay for enter/leave transitions
+     * Object style {enter: 300, leave: 300} for specifying explicit durations for enter/leave
+     */
+    delay: {
+      type: [Number, Object],
+      default: 0
+    },
+    /**
      * Whether the component should be a `transition-group` component.
      */
     group: Boolean,
@@ -59,7 +67,11 @@ export default {
   methods: {
     beforeEnter(el) {
       let enterDuration = this.duration.enter ? this.duration.enter : this.duration
-      el.style.animationDuration = `${enterDuration / 1000}s`
+      el.style.animationDuration = `${enterDuration}ms`
+
+      let enterDelay = this.delay.enter ? this.delay.enter : this.delay
+      el.style.animationDelay = `${enterDelay}ms`
+
       this.setStyles(el)
     },
     cleanUpStyles(el) {
@@ -70,10 +82,15 @@ export default {
         }
       })
       el.style.animationDuration = ''
+      el.style.animationDelay = ''
     },
     beforeLeave(el) {
       let leaveDuration = this.duration.leave ? this.duration.leave : this.duration
-      el.style.animationDuration = `${leaveDuration / 1000}s`
+      el.style.animationDuration = `${leaveDuration}ms`
+
+      let leaveDelay = this.delay.leave ? this.delay.leave : this.delay
+      el.style.animationDelay = `${leaveDelay}ms`
+
       this.setStyles(el)
     },
     leave(el) {
