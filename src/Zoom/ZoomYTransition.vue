@@ -39,7 +39,7 @@
 
     50% {
       opacity: 1;
-      tranform: scaleY(1)
+      transform: scaleY(1)
     }
   }
 
