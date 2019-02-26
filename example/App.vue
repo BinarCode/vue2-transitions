@@ -3,7 +3,7 @@
     <github
       v-tippy="{title: 'Star me on GitHub', trigger: 'mouseenter '}"
       fill="white"
-      slug="cristijora/vue2-transitions">
+      slug="binarcode/vue2-transitions">
     </github>
     <header class="header">
       <div class="container">
