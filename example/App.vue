@@ -144,7 +144,7 @@
         let sampleCode = example
           .replace(/TRANSITION/g, this.transitionName)
           .replace(/kebab-transition/g, kebab(this.transitionName))
-        if (this.isGroup) {
+        if (!this.isGroup) {
           sampleCode = sampleCode.replace(/\[group\]/g, '')
         } else {
           sampleCode = sampleCode.replace(/\[group\]/g, ' group')
