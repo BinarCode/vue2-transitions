@@ -12,7 +12,8 @@
   "typings": "types/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ],
   "scripts": {
     "prepublishOnly": "npm test && npm run build",
