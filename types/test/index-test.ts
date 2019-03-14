@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import Transitions, {
   FadeTransition,
-  ZoomCenterTansition,
+  ZoomCenterTransition,
   ZoomXTransition,
   ZoomYTransition,
   CollapseTransition,
@@ -37,7 +37,7 @@ Vue.use<TransitionOptions>(
 Vue.component('test-component', {
   components: {
     FadeTransition,
-    ZoomCenterTansition,
+    ZoomCenterTransition,
     ZoomXTransition,
     ZoomYTransition,
     CollapseTransition,
