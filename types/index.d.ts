@@ -23,7 +23,7 @@ export type TransitionName =
   'slide-x-right-transition'
 
 export const FadeTransition: Component
-export const ZoomCenterTansition: Component
+export const ZoomCenterTransition: Component
 export const ZoomXTransition: Component
 export const ZoomYTransition: Component
 export const CollapseTransition: Component
