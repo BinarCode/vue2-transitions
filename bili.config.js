@@ -9,8 +9,5 @@ export default {
     vue: {
       css: true
     }
-  },
-  babel: {
-    configFile: false
   }
 }

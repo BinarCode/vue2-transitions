@@ -6,8 +6,5 @@ module.exports = {
     html: {
       template: 'example/index.html'
     }
-  },
-  babel: {
-    configFile: true
   }
 }
