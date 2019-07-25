@@ -7,8 +7,8 @@
     "type": "git"
   },
   "main": "dist/vue2-transitions.cjs.js",
-  "module": "dist/vue2-transitions.m.js",
-  "unpkg": "dist/vue-transitions",
+  "module": "dist/vue2-transitions.esm.js",
+  "unpkg": "dist/vue2-transitions.umd.min.js",
   "typings": "types/index.d.ts",
   "files": [
     "dist",
