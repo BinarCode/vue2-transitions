@@ -9,7 +9,7 @@
   "main": "dist/vue2-transitions.cjs.js",
   "module": "dist/vue2-transitions.m.js",
   "unpkg": "dist/vue-transitions",
-  "typings": "types/index.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src",
@@ -19,7 +19,7 @@
     "prepublishOnly": "npm test && npm run build",
     "test": "test-vue-app",
     "test:types": "tsc -p ./types/test/tsconfig.json",
-    "build": "bili",
+    "build": "bili && cp types/index.d.ts dist",
     "example": "poi",
     "dev": "poi",
     "build:example": "poi build"
