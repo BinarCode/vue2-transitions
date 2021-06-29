@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "Reusable component transitions",
   "repository": {
-    "url": "cristij/vue2-transitions",
+    "url": "BinarCode/vue2-transitions",
     "type": "git"
   },
   "main": "dist/vue2-transitions.cjs.js",
